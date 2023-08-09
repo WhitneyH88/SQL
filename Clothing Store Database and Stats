@@ -1,0 +1,50 @@
+/**Clothing Store:
+Tops
+Skirts
+Shorts
+Jeans
+Pants
+Underwear
+Bras
+Socks
+Shoes
+Dresses
+Tanks
+Camis
+Shapewear
+Jewelry
+Watches
+**/
+
+CREATE TABLE clothingstore (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, amount INTEGER, season TEXT);
+
+INSERT INTO clothingstore VALUES (1, "Tops", 12,7,"Fall");
+INSERT INTO clothingstore VALUES (2, "Skirts", 14,9,"Winter");
+INSERT INTO clothingstore VALUES (3, "Shorts", 23,12,"Summer");
+INSERT INTO clothingstore VALUES (4,"Jeans",28,77,"Spring");
+INSERT INTO clothingstore VALUES (5,"Pants", 42,2,"Winter");
+INSERT INTO clothingstore VALUES (6,"Underwear",8,6,"Summer");
+INSERT INTO clothingstore VALUES (7, "Bras", 22,23,"Fall");
+INSERT INTO clothingstore VALUES (8,"Socks", 11,7,"Spring");
+INSERT INTO clothingstore VALUES (9,"Shoes",52,55,"Winter");
+INSERT INTO clothingstore VALUES (10,"Dresses",32,43,"Winter");
+INSERT INTO clothingstore VALUES (11,"Tanks",16,20,"Spring");
+INSERT INTO clothingstore VALUES (12,"Camis", 14,88,"Summer");
+INSERT INTO clothingstore VALUES (13, "Shapewear",40,3,"Fall");
+INSERT INTO clothingstore VALUES (14,"Jewelry", 100,11,"Fall");
+INSERT INTO clothingstore VALUES (15,"Watches", 88,62,"Summer");
+
+
+SELECT * FROM clothingstore;
+
+--Display database ordered by price
+SELECT * FROM clothingstore WHERE price ORDER BY price asc
+
+--Display database ordered by Amount
+SELECT * FROM clothingstore WHERE amount ORDER BY amount desc;
+
+--How much Inventory is there?
+SELECT SUM(amount) from clothingstore WHERE amount;
+
+--What is the average price of an item?
+SELECT AVG(price) FROM clothingstore WHERE price;
