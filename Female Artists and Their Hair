@@ -1,0 +1,71 @@
+CREATE TABLE artists (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    stage_name TEXT,
+    birth_name TEXT,
+    age INTEGER,
+    most_popular_song TEXT,
+    year_of_popular_song TEXT,
+    born_in TEXT,
+    genre TEXT);
+    
+    INSERT INTO artists (stage_name,birth_name, age, most_popular_song,year_of_popular_song, born_in, genre) VALUES ("Kacey Musgraves","Kacey Lee Musgraves", "35","Rainbow", "2018", "Texas", "Country");
+     INSERT INTO artists (stage_name,birth_name, age, most_popular_song,year_of_popular_song, born_in, genre) VALUES ("Britney Spears","Britney Jean Spears", "41", "Hit me Baby one more time","1998", "Louisiana","Pop"); 
+      INSERT INTO artists (stage_name,birth_name, age, most_popular_song,year_of_popular_song, born_in, genre) VALUES ("Ariana Grande", "Ariana Grande-Butera", "30", "Thank You Next","2018", "Florida","Pop");
+       INSERT INTO artists (stage_name,birth_name, age, most_popular_song,year_of_popular_song, born_in, genre) VALUES ("Olivia Rodrigo","Olivia Isabel Rodrigo", "20", "Drivers License", "2021","California", "Pop Punk");
+        INSERT INTO artists (stage_name,birth_name, age, most_popular_song,year_of_popular_song, born_in, genre) VALUES ("Dua Lipa","Dua Lipa", "28", "Levitating", "2020", "UK","Dark Pop");
+        
+        
+  CREATE TABLE hair (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    color TEXT,
+    hair_length TEXT,
+    extensions TEXT,
+    natural_color TEXT,
+    hair_type TEXT,
+    hair_stylist TEXT);
+    
+    INSERT INTO hair (color,hair_length, extensions,natural_color, hair_type, hair_stylist) VALUES ("brunette", "long", "no", "brunette","straight", "Giovanni Delgado");
+    INSERT INTO hair (color,hair_length,extensions, natural_color, hair_type, hair_stylist) VALUES ("blonde", "medium", "yes", "brunette", "straight", "Brittany Hunter");
+    INSERT INTO hair (color,hair_length,extensions,natural_color,hair_type, hair_stylist) VALUES ("blonde", "long", "yes", "brunette", "curly", "Josh Liu");
+    INSERT INTO hair (color,hair_length,extensions,natural_color,hair_type, hair_stylist) VALUES ("brunette", "long", "no", "brunette","straight", "Clayton Hawkins");
+    INSERT INTO hair (color,hair_length,extensions,natural_color,hair_type, hair_stylist) VALUES ("brunette", "long", "no", "brunette","straight", "Chris Appleton");
+    
+    
+    -- Artists stage name, age, hair color and hair lenth--
+    SELECT artists.stage_name, artists.age, hair.color, hair.hair_length
+    FROM artists
+    JOIN hair
+    ON artists.id = hair.id;
+
+  -- Artists stage name, birth name, age, where they were born and what their natural hair color is ordered by age descending--
+    SELECT artists.stage_name, artists.birth_name, artists.age, artists.born_in, hair.natural_color
+    FROM artists
+    JOIN hair
+    ON artists.id = hair.id
+    ORDER BY age DESC;
+
+  -- Artists stage name, hair length and hair stylists where the artists does not have extensions --
+    SELECT artists.stage_name, hair.hair_length, hair.extensions, hair.hair_stylist
+    FROM artists
+    JOIN hair
+    ON artists.id = hair.id
+    WHERE extensions = "no";
+    
+  -- Artists stage name, age, and natural hair color where their current hair color is blonde--
+    SELECT artists.stage_name, artists.age, hair.color, hair.natural_color
+    FROM artists
+    JOIN hair
+    ON artists.id = hair.id
+    WHERE color = "blonde";
+
+  --Artists who have hair extensions and are equal to or over the age of 30--
+    SELECT artists.stage_name, artists.age, hair.extensions
+    FROM artists
+    JOIN hair
+    ON artists.id = hair.id
+    WHERE age >= 30 AND extensions = "yes";
+    
+   --Artists and info about their genre and most popular songs ordered by the year of their most popular song ascending--  
+    SELECT artists.stage_name, artists.most_popular_song, artists.year_of_popular_song, artists.genre
+    FROM artists 
+    ORDER BY year_of_popular_song ASC;
