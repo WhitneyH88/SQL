@@ -38,7 +38,7 @@ INSERT INTO clothingstore VALUES (15,"Watches", 88,62,"Summer");
 SELECT * FROM clothingstore;
 
 --Display database ordered by price
-SELECT * FROM clothingstore WHERE price ORDER BY price asc
+SELECT * FROM clothingstore WHERE price ORDER BY price asc;
 
 --Display database ordered by Amount
 SELECT * FROM clothingstore WHERE amount ORDER BY amount desc;
