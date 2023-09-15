@@ -76,3 +76,11 @@ select SUM(quantity) as quantity, product
 from FebSales
 WHERE product like '%Headphones%'
 GROUP BY product
+
+#10. What was the average amount spent per account in February?
+SELECT avg(quantity*price)
+FROM FebSales 
+JOIN customers 
+ON FebSales.orderid=customers.order_id
+WHERE length(order_id) = 6 
+AND order_id <> 'order ID'
