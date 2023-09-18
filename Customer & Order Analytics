@@ -84,3 +84,11 @@ JOIN customers
 ON FebSales.orderid=customers.order_id
 WHERE length(order_id) = 6 
 AND order_id <> 'order ID'
+
+#11. What was the average quantity of products purchased per account in February?
+select sum(quantity)/count(customers.acctnum)
+FROM FebSales 
+JOIN customers 
+ON FebSales.orderid=customers.order_id
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID'
