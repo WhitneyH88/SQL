@@ -85,4 +85,13 @@ ON tracks.GenreId = genres.GenreId
   GROUP By employees.FirstName;
 
 14.Which sales agent made the most dollars in sales in 2009?
-
+SELECT employees.FirstName || " " || employees.LastName AS "Sales Agent",
+       SUM(invoices.Total) AS "Total Sales"
+  FROM Employees,
+       Customers,
+       Invoices
+ WHERE employees.EmployeeId == customers.SupportRepId AND 
+       customers.CustomerId == invoices.CustomerId
+       AND invoices.Invoicedate LIKE "%2009%"
+ GROUP BY employees.FirstName
+ 
