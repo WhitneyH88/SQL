@@ -93,5 +93,6 @@ SELECT employees.FirstName || " " || employees.LastName AS "Sales Agent",
  WHERE employees.EmployeeId == customers.SupportRepId AND 
        customers.CustomerId == invoices.CustomerId
        AND invoices.Invoicedate LIKE "%2009%"
- GROUP BY employees.FirstName
+GROUP BY employees.FirstName
+Order BY SUM(invoices.Total) DESC LIMIT 1;
  
