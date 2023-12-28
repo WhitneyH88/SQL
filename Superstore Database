@@ -1,5 +1,5 @@
 Superstore Database
-In this project, I wrote your SQL code to query a Superstore Database.
+In this project, I wrote SQL code to query a Superstore Database.
 This is an example of data you might work with at a company like Costco, Big Lots, Amazon, Walmart, TJ Maxx, Target, CVS, Dollar General, or Home Depot.
 
 CREATE TABLE superstore (
